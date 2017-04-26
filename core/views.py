@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
+
 from .models import Pergunta , Tag , Resposta
 
 def perguntas_recentes(request):
@@ -30,5 +32,12 @@ def excluir_pergunta(request,id_pergunta):
 	pergunta = Pergunta.objects.get(pk=id_pergunta)
 	pergunta.delete()
 
-	print(id_pergunta)
+	return redirect('index')
+
+def escolher_resposta(request,id_resposta):
+
+	resposta = Resposta.objects.get(pk=id_resposta)
+	resposta.mais_util = True
+	resposta.save()
+
 	return redirect('index')
