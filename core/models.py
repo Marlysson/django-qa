@@ -70,7 +70,11 @@ class Resposta(MixinCriacaoEAlteracao):
 	@property
 	def is_util(self):
 		return self.mais_util
-		
+	
+	@property
+	def parsed(self):
+            return mistune.markdown(self.conteudo)
+
 	@property
 	def votos(self):
 		return self.up_votes - self.down_votes
