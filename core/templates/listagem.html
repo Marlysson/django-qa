@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+	
+	{% for pergunta in perguntas %}
+		
+		<div class="container-pergunta clear-fix">
+
+			<div class="box-estatisticas">
+				
+				<span class="dado-estatistico quant-votos">
+					<p class="dado-valor">{{ pergunta.votos }}</p>
+					<p class="dado-descricao">votos</p>
+				</span>
+
+				{% if pergunta.has_util %}
+				<span class="dado-estatistico quant-respostas respondida">
+				{% else %}
+				<span class="dado-estatistico quant-respostas">
+				{% endif %}
+
+					<p class="dado-valor">{{ pergunta.respostas.count }}</p>
+					<p class="dado-descricao">respostas</p>
+				</span>
+
+			</div>
+
+			<div class="box-pergunta">
+
+				<h4 class="titulo"><a href="">{{ pergunta.titulo}}</a></h4>
+
+				<ul class="tags">
+					{% for tag in pergunta.all_tags %}
+						<li class="tag"><a href="">{{ tag.slugfy }}</a></li>
+					{% endfor %}
+				</ul>
+
+				<p class="tempo_pergunta">Perguntada por 
+					<a href="" class="username">{{ pergunta.criada_por.usuario }}</a> 
+					há {{ now | timesince:pergunta.criado_em }}
+				</p>
+
+			</div>
+		</div>
+
+	{% endfor %}
+		
+{% endblock %}
+
+{% block left_tags %}
+	<h3 class="titulo_tags">Tags</h3>
+	<ul class="tags tags_block">
+		{% for tag in tags %}
+			<li class="tag">
+				<a href="">{{tag.slugfy}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

@@ -1,0 +1,123 @@
+*{margin:0;padding:0;}
+
+.menu{
+	list-style: none;
+	text-align: right;
+	border-bottom:1px solid #95a5a6;
+	height:auto;
+}
+
+.menu li{
+	display:inline-block;
+}
+
+.menu a{
+	display:block;
+	background:#1abc9c;
+	color:white;
+	font-weight:bold;
+	padding:5px 10px;
+	text-decoration: none;
+}
+
+.container{
+	margin-top:50px;
+}
+
+.container-pergunta{
+	border-bottom:1px solid #ccc;
+	padding:10px 0;
+}
+
+.box-estatisticas{
+	width:20%;
+	display:inline-block;
+}
+
+.box-pergunta{
+	display:inline-block;
+	width:75%;
+	height:100%;
+}
+
+.dado-estatistico{
+	display: inline-block;
+	width:63px;
+	height:60px;
+	text-align:center;
+
+	line-height:10px;
+}
+
+.quant-votos{
+	border:1px solid #ccc;
+	color:#888;
+}
+
+.quant-respostas{
+	color:#34495e;
+	margin-left:10px;
+}
+
+.dado-valor{
+	font-weight: bold;
+	font-size:26px;
+	margin-top:15px;
+}
+
+.dado-descricao{
+	font-size:13px;
+}
+
+.respondida{
+	background:#1abc9c;
+	color:white;
+}
+
+.tags{
+	display:inline-block;
+}
+
+.tags li{
+	list-style:none;
+	display:inline-block;
+}
+
+.tags a{
+	display:block;
+	text-decoration: none;
+	background:#1abc9c;
+	color:#fff;
+	padding:5px;
+}
+
+.tempo_pergunta{
+	display: inline-block;
+	float:right;
+	color:#34495e;
+}
+
+.username{
+	color:#2980b9;
+	font-weight:bold;
+}
+
+.tags_block li{
+	display:block;
+	margin-bottom:10px;
+}
+
+.tags_block a{
+	padding:5px 10px;
+	display:inline-block;
+}
+
+.titulo_tags{
+	margin:0;
+	padding-bottom:20px;
+}
+
+.titulo a{
+	font-weight:bold;
+	text-decoration:none;
+}

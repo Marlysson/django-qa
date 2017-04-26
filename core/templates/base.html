@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Django-QA</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+
+</head>
+<body>
+
+<nav class="container">
+	<ul class="menu">
+		<li><a href="">Perguntas</a></li>
+		<li><a href="">Faça uma pergunta</a></li>
+	</ul>
+</nav>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-9">
+			{% block conteudo %}
+
+			{% endblock %}
+		</div>
+		<div class="col-lg-3">
+			{% block left_tags %}
+
+  			{% endblock %}
+		</div>
+	</div>
+	
+  
+  	
+</div>
+  	
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
