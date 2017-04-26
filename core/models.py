@@ -12,7 +12,7 @@ class Perfil(models.Model):
 	avatar = models.ImageField(upload_to="fotos",blank=True,null=True)
 	pontos = models.IntegerField(default=0,blank=True,null=True)
 	website = models.URLField(blank=True,null=True)
-
+	
 	def __str__(self):
 		return self.usuario.username
 
@@ -52,8 +52,9 @@ class Pergunta(MixinCriacaoEAlteracao):
 	def down_vote(self):
 		self.down_vote += 1
 		self.save()
-	
 
+	class Meta:
+		ordering = ['-criado_em']
 
 	def __str__(self):
 		return "{} , {}".format(self.titulo,self.tags)
