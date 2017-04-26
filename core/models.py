@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+import mistune
 
 from .mixins import MixinCriacaoEAlteracao
 
@@ -26,6 +27,10 @@ class Pergunta(MixinCriacaoEAlteracao):
 		if resposta_util.count() > 0:
 			return True
 		return False
+	
+	@property
+	def parsed(self):
+            return mistune.markdown(self.conteudo)
 
 	def up_vote(self):
 		self.up_votes += 1
@@ -35,6 +40,8 @@ class Pergunta(MixinCriacaoEAlteracao):
 		self.down_vote += 1
 		self.save()
 
+	class Meta:
+		ordering = ['-criado_em']
 
 	def __str__(self):
 		return "{} , {}".format(self.titulo,self.tags)
@@ -50,7 +57,11 @@ class Resposta(MixinCriacaoEAlteracao):
 	@property
 	def is_util(self):
 		return self.mais_util
-		
+	
+	@property
+	def parsed(self):
+            return mistune.markdown(self.conteudo)
+
 	@property
 	def votos(self):
 		return self.up_votes - self.down_votes
