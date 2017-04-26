@@ -7,15 +7,15 @@
 	<form method="post" action="/perguntas/{{pergunta.id}}/edit/" class="col-lg-8 col-lg-offset-2">
 
 		{% csrf_token %}
-		
+
 		<div class="input-group">
   			<span class="input-group-addon" id="basic-addon1">Título</span>
-  			<input type="titulo" name="titulo" value="{{ pergunta.titulo }}"class="form-control" aria-describedby="basic-addon1">
+  		<input type="titulo" name="titulo" value="{{ pergunta.titulo }}" class="form-control" aria-describedby="basic-addon1">
 		</div>
 
 		<h3>Conteúdo</h3>
-		<div class="input-group">
-  			<textarea name="conteudo" class="form-control">{{ pergunta.conteudo }}</textarea>
+		<div class="input-group" style="width:100%">
+  			<textarea name="conteudo" class="form-control" resize="none" rows=10>{{ pergunta.conteudo }}</textarea>
 		</div>
 
 		<button type="submit" class="btn btn-success">Alterar</button>

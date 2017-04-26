@@ -15,12 +15,13 @@ def editar_pergunta(request,id_pergunta):
 	novo_conteudo = request.POST['conteudo']
 
 	pergunta = Pergunta.objects.get(pk=id_pergunta)
-	
+
 	pergunta.titulo = novo_titulo
 	pergunta.conteudo = novo_conteudo
 	pergunta.save()
 	
 	return redirect('index')
+
 
 def perguntas_recentes(request):
 

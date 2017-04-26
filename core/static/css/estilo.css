@@ -221,6 +221,7 @@ h3.titulo {
 
 .input-group{margin-bottom:20px;}
 
-text-area.form-group{
+textarea{
 	width:100%;
+	height:200px;
 }
