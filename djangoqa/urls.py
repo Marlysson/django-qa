@@ -24,6 +24,9 @@ urlpatterns = [
     url(r'^$',views.perguntas_recentes,name="index"),
     url(r'^perguntas/(?P<id_pergunta>[0-9]+)/$',views.respostas,name="detalhes"),
     url(r'^perguntas/(?P<id_pergunta>[0-9]+)/excluir/$',views.excluir_pergunta),
+    url(r'^perguntas/(?P<id_pergunta>[0-9]+)/detalhes/$',views.detalhes_pergunta),
+    url(r'^perguntas/(?P<id_pergunta>[0-9]+)/edit/$',views.editar_pergunta),
     url(r'^respostas/(?P<id_resposta>[0-9]+)/mais_util/$',views.escolher_resposta),
+
     url(r'^tags/create/$',views.criar_tag,name="criar_tag")
 ]

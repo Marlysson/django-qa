@@ -218,3 +218,9 @@ h3.titulo {
 .form-resposta{
 	margin-bottom:10px;
 }
+
+.input-group{margin-bottom:20px;}
+
+text-area.form-group{
+	width:100%;
+}

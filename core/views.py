@@ -3,6 +3,25 @@ from django.core.urlresolvers import reverse
 
 from .models import Pergunta , Tag , Resposta
 
+def detalhes_pergunta(request,id_pergunta):
+
+	pergunta = Pergunta.objects.get(pk=id_pergunta)
+
+	return render(request,'editar_pergunta.html',{"pergunta":pergunta})
+
+def editar_pergunta(request,id_pergunta):
+
+	novo_titulo = request.POST["titulo"]
+	novo_conteudo = request.POST['conteudo']
+
+	pergunta = Pergunta.objects.get(pk=id_pergunta)
+	
+	pergunta.titulo = novo_titulo
+	pergunta.conteudo = novo_conteudo
+	pergunta.save()
+	
+	return redirect('index')
+
 def perguntas_recentes(request):
 
 	perguntas = Pergunta.objects.all()
