@@ -13,7 +13,7 @@ class Perfil(models.Model):
 	website = models.URLField(blank=True,null=True)
 
 	def __str__(self):
-		return self.username
+		return self.usuario.username
 
 class Pergunta(MixinCriacaoEAlteracao):
 
@@ -25,8 +25,20 @@ class Pergunta(MixinCriacaoEAlteracao):
 	tags = models.ManyToManyField('Tag')
 
 	@property
+	def all_tags(self):
+		return [tag for tag in self.tags.all()]
+
+	@property
 	def votos(self):
-		return abs(self.up_votes - self.down_votes)
+		return self.up_votes - self.down_votes
+
+	@property
+	def has_util(self):
+		resposta_util = self.respostas.filter(mais_util=True)
+
+		if resposta_util.count() > 0:
+			return True
+		return False
 
 	def up_vote(self):
 		self.up_votes += 1
@@ -35,6 +47,7 @@ class Pergunta(MixinCriacaoEAlteracao):
 	def down_vote(self):
 		self.down_vote += 1
 		self.save()
+
 
 	def __str__(self):
 		return "{} , {}".format(self.titulo,self.tags)
@@ -50,7 +63,7 @@ class Resposta(MixinCriacaoEAlteracao):
 
 	@property
 	def votos(self):
-		return abs(self.up_votes - self.down_votes)
+		return self.up_votes - self.down_votes
 
 	def __str__(self):
 		return "{}".format(self.conteudo)
@@ -61,9 +74,16 @@ class Comentario(MixinCriacaoEAlteracao):
 	criado_por = models.ForeignKey(Perfil)
 	pergunta = models.ForeignKey(Pergunta,related_name="comentarios",on_delete=models.CASCADE)
 
+	def __str__(self):
+		return self.conteudo
+
 class Tag(models.Model):
 
 	nome = models.CharField(max_length=20)
 
-	def __repr__(self):
+	@property
+	def slugfy(self):
+		return self.nome.lower().replace(" ","-")
+
+	def __str__(self):
 		return self.nome
