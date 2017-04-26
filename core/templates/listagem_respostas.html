@@ -17,7 +17,7 @@
 
 				<h3 class="titulo">{{ pergunta.titulo }}</h3>
 
-				<p class="conteudo-pergunta">{{ pergunta.conteudo }}</p>
+				<p class="conteudo-pergunta">{{ pergunta.parsed|safe }}</p>
 
 				<div class="bottom-container">
 
@@ -69,7 +69,7 @@
 
 				<h4 class="titulo">{{ resposta.titulo}}</h4>
 
-				<p class="conteudo-pergunta">{{ resposta.parsed }} </p>
+				<p class="conteudo-pergunta">{{ resposta.parsed|safe }} </p>
 
 				<div class="bottom-container">
 
