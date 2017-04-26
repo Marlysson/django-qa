@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$',views.perguntas_recentes,name="index"),
-    url(r'^perguntas/(?P<id_pergunta>[0-9]+)/respostas/$',views.respostas,name="detalhes")
+    url(r'^perguntas/(?P<id_pergunta>[0-9]+)/respostas/$',views.respostas,name="detalhes"),
+    url(r'^perguntas/(?P<id_pergunta>[0-9]+)/excluir/$',views.excluir_pergunta)
 ]
