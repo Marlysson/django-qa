@@ -22,6 +22,15 @@ def editar_pergunta(request,id_pergunta):
 	
 	return redirect('index')
 
+def responder(request,id_pergunta):
+
+	conteudo = request.POST['resposta']
+	pergunta = Pergunta.objects.get(pk=id_pergunta)
+
+	resposta = Resposta(conteudo=conteudo,pergunta=pergunta)
+	resposta.save()
+
+	return redirect('index')
 
 def perguntas_recentes(request):
 

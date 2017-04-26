@@ -77,14 +77,15 @@
 	
 	{% endfor %}
 
-	<form class="form-resposta row" action="" method="POST">
+	<form class="form-resposta row" action="/perguntas/{{ pergunta.id }}/responder/" method="POST">
 		{% csrf_token %}
 
 		<textarea class="form-control" rows="4" name="resposta"></textarea>
-		<input type="hidden" name="pergunta" value="{{pergunta.id}}">
+		
 		<div class="botao-submit">
       		<button type="submit" class="btn btn-success">Responder</button>
     	</div>
+
 	</form>
 
 {% endblock %}
