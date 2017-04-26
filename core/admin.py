@@ -5,10 +5,6 @@ from .models import *
 class TagAdmin(admin.ModelAdmin):
 	pass
 
-@admin.register(Perfil)
-class PerfilAdmin(admin.ModelAdmin):
-	pass
-
 @admin.register(Pergunta)
 class Pergunta(admin.ModelAdmin):
 	list_display = ['titulo','get_tags']
