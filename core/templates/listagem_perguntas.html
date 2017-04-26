@@ -27,7 +27,17 @@
 
 			<div class="box-pergunta">
 
-				<h4 class="titulo"><a href="">{{ pergunta.titulo}}</a></h4>
+				<h4 class="titulo">
+					<a href="perguntas/{{ pergunta.id}}/respostas">{{ pergunta.titulo}}</a>
+
+					<span class="acoes">
+						<a href=""><span class="glyphicon glyphicon-pencil"></span></a>	
+						<a href=""><span class="glyphicon glyphicon-remove"></span></a>
+					</span>
+
+				</h4>
+
+
 
 				<ul class="tags">
 					{% for tag in pergunta.all_tags %}
@@ -37,7 +47,7 @@
 
 				<p class="tempo_pergunta">Perguntada por 
 					<a href="" class="username">{{ pergunta.criada_por.usuario }}</a> 
-					há {{ now | timesince:pergunta.criado_em }}
+					há {{ pergunta.criado_em|timesince }}
 				</p>
 
 			</div>

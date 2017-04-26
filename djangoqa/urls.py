@@ -21,5 +21,6 @@ from core import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    url(r'^$',views.listagem,name="index")
+    url(r'^$',views.perguntas_recentes,name="index"),
+    url(r'^perguntas/(?P<id_pergunta>[0-9]+)/respostas/$',views.respostas,name="detalhes")
 ]

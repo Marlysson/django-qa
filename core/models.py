@@ -62,6 +62,10 @@ class Resposta(MixinCriacaoEAlteracao):
 	pergunta = models.ForeignKey(Pergunta,related_name="respostas",on_delete=models.CASCADE)
 
 	@property
+	def is_util(self):
+		return self.mais_util
+		
+	@property
 	def votos(self):
 		return self.up_votes - self.down_votes
 

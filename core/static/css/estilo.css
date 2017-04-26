@@ -1,10 +1,27 @@
 *{margin:0;padding:0;}
 
+.container-top{
+	border-bottom:1px solid #95a5a6;
+}
+
+.titulo-sistema{
+	text-align:left;
+	font-size:35px;	
+	font-weight: bold;
+	float:left;
+	color:#95a5a6;
+	margin-bottom:0;
+}
+
+.acoes{
+	text-align:right;
+}
+
 .menu{
 	list-style: none;
 	text-align: right;
-	border-bottom:1px solid #95a5a6;
-	height:auto;
+	float:right;
+	margin-bottom:0;
 }
 
 .menu li{
@@ -12,7 +29,7 @@
 }
 
 .menu a{
-	display:block;
+	display: block;
 	background:#1abc9c;
 	color:white;
 	font-weight:bold;
@@ -27,6 +44,10 @@
 .container-pergunta{
 	border-bottom:1px solid #ccc;
 	padding:10px 0;
+}
+
+.container-pergunta:hover .acoes{
+	display:block;
 }
 
 .box-estatisticas{
@@ -120,4 +141,80 @@
 .titulo a{
 	font-weight:bold;
 	text-decoration:none;
+}
+
+.acoes{
+	float:right;
+	display:none;
+	transition:0.3s all;
+}
+
+h3.titulo {
+	margin-top:0;
+}
+
+.box-content{
+	margin-bottom:30px;
+}
+
+.form-resposta{
+	margin-bottom:50px;
+}
+
+.container-votos{
+	display:flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.total_votos{
+	font-size:25px;
+	margin:0;
+}
+
+.icon-up , .icon-down , .icon-util{
+	font-size:35px;
+	color:#34495e;
+	text-decoration:none !important;
+}
+
+.icon-util{
+	color:#ccc;
+}
+
+.checked{
+	color:#2ecc71;
+}
+
+.conteudo-pergunta{
+	font-size:15px;
+	text-align:justify;
+}
+
+.comentarios{
+	list-style: none;
+}
+
+.comentario{
+	border-bottom:1px solid #ccc;
+	padding:10px;
+}
+
+.bottom-container{
+	display:block;
+}
+
+.bottom-container .tags{
+	float:left;
+}
+
+.bottom-container .autor{
+	float:right;
+	display:inline-block;
+	border-bottom:2px solid #ccc;
+}
+
+
+.form-resposta{
+	margin-bottom:10px;
 }

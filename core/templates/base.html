@@ -10,11 +10,15 @@
 </head>
 <body>
 
-<nav class="container">
+<nav class="container container-top">
+
+	<p class="titulo-sistema">Django-Q&A</p>
+
 	<ul class="menu">
-		<li><a href="">Perguntas</a></li>
+		<li><a href="{% url 'index' %}">Perguntas</a></li>
 		<li><a href="">Faça uma pergunta</a></li>
 	</ul>
+
 </nav>
 
 <div class="container">

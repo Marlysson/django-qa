@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+	
+
+	<div class="box-content">
+		<div class="row">
+
+			<div class="col-lg-1 container-votos">
+
+				<a href="" class="glyphicon glyphicon-triangle-top icon-up"></a>
+				<p class="total_votos">{{ pergunta.votos }}</p>
+				<a href="" class="glyphicon glyphicon-triangle-bottom icon-down"></a>
+			</div>
+
+			<div class="col-lg-11">
+
+				<h3 class="titulo">{{ pergunta.titulo }}</h3>
+
+				<p class="conteudo-pergunta">{{ pergunta.conteudo }}</p>
+
+				<div class="bottom-container">
+
+					<ul class="tags">
+						{% for tag in pergunta.all_tags %}
+							<li class="tag"><a href="">{{ tag.slugfy }}</a></li>
+						{% endfor %}
+					</ul>	
+
+					<p class="autor">Perguntado por {{ pergunta.criada_por.usuario}}</p>
+
+				</div>
+				
+				
+				<div class="row">
+					
+					<ul class="comentarios col-lg-11 col-lg-offset-l1 pull-right">
+						{% for comentario in comentarios %}
+							<li class="comentario">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
+						{% endfor %}
+					</ul>
+
+				</div>
+				
+			</div>
+
+		</div>
+
+	</div>
+
+	{% for resposta in respostas %}
+	<div class="box-content">
+		<div class="row">
+
+			<div class="col-lg-1 container-votos">
+				<a href="" class="glyphicon glyphicon-triangle-top icon-up"></a>
+				<p class="total_votos">{{ resposta.votos}}</p>
+				<a href="" class="glyphicon glyphicon-triangle-bottom icon-down"></a>
+
+				{% if resposta.is_util %}
+					<a href=""><span class="glyphicon glyphicon-ok icon-util checked"></span></a>
+				{% else %}
+					<a href=""><span class="glyphicon glyphicon-ok icon-util"></span></a>
+				{% endif%}
+
+			</div>
+
+			<div class="col-lg-11">
+
+				<h4 class="titulo">{{ resposta.titulo}}</h4>
+
+				<p class="conteudo-pergunta">{{ resposta.conteudo }} </p>
+
+				<div class="bottom-container">
+
+					<p class="autor">Respondido por {{ resposta.criada_por.usuario}}</p>
+
+				</div>				
+
+			</div>
+
+		</div>
+
+	</div>
+	
+	{% endfor %}
+
+	<form class="form-resposta row">
+		<textarea class="form-control" rows="5"></textarea>
+
+		<div class="botao-submit">
+      		<button type="submit" class="btn btn-success">Responder</button>
+    	</div>
+	</form>
+
+{% endblock %}
+
+{% block left_tags %}
+	<h3 class="titulo_tags">Tags</h3>
+	<ul class="tags tags_block">
+		{% for tag in tags %}
+			<li class="tag">
+				<a href="">{{tag.slugfy}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
