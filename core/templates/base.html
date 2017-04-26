@@ -29,9 +29,21 @@
 			{% endblock %}
 		</div>
 		<div class="col-lg-3">
-			{% block left_tags %}
+				{% block left_tags %}
 
-  			{% endblock %}
+	  			{% endblock %}
+
+	  			<form action="{% url 'criar_tag' %}" method="post">
+	  				{% csrf_token %}
+	  				<div class="input-group">
+			  			<input type="text" name="tag" class="form-control" placeholder="Python" aria-describedby="basic-addon2">
+		  				<span class="input-group-addon" id="basic-addon2">Tag name</span>
+						</div>
+
+	  				<button type="submit" class="btn btn-success">Criar</button>
+	  			</form>
+
+	  		
 		</div>
 	</div>
 	

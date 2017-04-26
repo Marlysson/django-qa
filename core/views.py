@@ -41,3 +41,14 @@ def escolher_resposta(request,id_resposta):
 	resposta.save()
 
 	return redirect('index')
+
+def criar_tag(request):
+
+	nome = request.POST['tag']
+
+	existe = Tag.objects.filter(nome__icontains=nome).count()
+
+	if not existe:
+		tag = Tag.objects.create(nome=nome)
+
+	return redirect('index')
